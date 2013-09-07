@@ -7,12 +7,12 @@ module.exports = function(app, config) {
   // Setup database and UserSchema
   var UserSchema = new Schema({
     username: {type: 'string', index: {unique: true}},
-    hashed_password: 'string'
+    password: 'string'
   });
 
-  UserSchema.virtual('password').set(function(pass) {
-    this.hashed_password = pass;
-  });
+  // UserSchema.virtual('password').set(function(pass) {
+  //   this.hashed_password = pass;
+  // });
 
   mongoose.model('User', UserSchema);
 
